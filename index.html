@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Odtwarzacz z transkrypcją</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+    #waveform { margin: 20px 0; }
+    #transcript { line-height: 1.6; }
+    .cue { cursor: pointer; display: block; margin: 5px 0; }
+    .cue.active { background: #ffff99; }
+  </style>
+</head>
+<body>
+
+<h2>Odtwarzacz audio z transkrypcją</h2>
+<div id="waveform"></div>
+<button onclick="wavesurfer.playPause()">▶️ / ⏸️</button>
+
+<div id="transcript"></div>
+
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script src="https://unpkg.com/wavesurfer.js/dist/plugins/subtitle.min.js"></script>
+
+<script>
+  const wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: 'lightgray',
+    progressColor: 'steelblue',
+    height: 100,
+    url: 'audio.mp3',
+    plugins: [
+      WaveSurfer.subtitles.create({
+        src: 'audio.srt',
+        format: 'srt',
+        container: '#transcript',
+        interactive: true,
+      })
+    ]
+  });
+</script>
+
+</body>
+</html>

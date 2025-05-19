@@ -1,0 +1,7 @@
+1
+00:00:00,000 --> 00:00:05,000
+To jest przykładowa linia transkrypcji.
+
+2
+00:00:05,000 --> 00:00:10,000
+Druga linia, zsynchronizowana z dźwiękiem.
